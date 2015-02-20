@@ -1,0 +1,3 @@
+class ram {
+  # ram
+}
