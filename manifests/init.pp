@@ -37,6 +37,13 @@
 #
 class sanity {
 
+  include ::sanity::cpu
+  include ::sanity::file_contents
+  include ::sanity::filesystems
+  include ::sanity::nfs
+  include ::sanity::ram
+  include ::sanity::ssh
+
   case $::osfamily {
     'windows','Solaris','Darwin': {
       fail("Unsupported osfamily: ${::osfamily}")
