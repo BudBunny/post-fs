@@ -40,6 +40,7 @@ class sanity {
   include ::sanity::cpu
   include ::sanity::file_contents
   include ::sanity::filesystems
+  include ::sanity::fqdn
   include ::sanity::nfs
   include ::sanity::ram
   include ::sanity::ssh
