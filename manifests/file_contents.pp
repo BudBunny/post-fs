@@ -24,13 +24,10 @@ class sanity::file_contents {
   file { '/etc/opt/quest/vas/users.allow':
     ensure => file,
   }
+  file_line { 'EDC\P_CIOX_PRD_AppAdmin_FS_Role':
+   ensure => present,
+   path   => '/etc/opt/quest/vas/users.allow',
+   line   => 'EDC\P_CIOX_PRD_AppAdmin_FS_Role',
+ }
 
-  augeas { '/etc/opt/quest/vas/users.allow':
-    context => '/etc/opt/quest/vas/users.allow',
-    changes => [
-      'set EDC\P_CIOX_PRD_AppAdmin_FS_Role',
-      'set EDC\P_OPSX_PRD_AppAdmin_FS_Role',
-    ],
-    #notify  => Service['vas'],
-  }
 }
