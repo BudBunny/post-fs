@@ -28,8 +28,8 @@ class sanity::file_contents {
   augeas { '/etc/opt/quest/vas/users.allow':
     context => '/etc/opt/quest/vas/users.allow',
     changes => [
-      'set EDC\P_CIOX_PRD_AppAdmin_FS_Role',
-      'set EDC\P_OPSX_PRD_AppAdmin_FS_Role',
+      'clear title[1] EDC\P_CIOX_PRD_AppAdmin_FS_Role',
+      'clear title[2] EDC\P_OPSX_PRD_AppAdmin_FS_Role',
     ],
     #notify  => Service['vas'],
   }
