@@ -16,9 +16,9 @@ class sanity::file_contents {
   $quest_vas_dirs = [ '/etc/opt', '/etc/opt/quest', '/etc/opt/quest/vas' ]
   file { $quest_vas_dirs:
     ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0750',
+    #owner  => 'root',
+    #group  => 'root',
+    #mode   => '0750',
   }
 
   file { '/etc/opt/quest/vas/users.allow':
