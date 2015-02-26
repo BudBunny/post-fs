@@ -22,6 +22,6 @@ class sanity::file_contents {
       'set EDC\P_CIOX_PRD_AppAdmin_FS_Role',
       'set EDC\P_OPSX_PRD_AppAdmin_FS_Role',
     ],
-    notify  => Service['vas'],
+    #notify  => Service['vas'],
   }
 }
