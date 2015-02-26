@@ -3,5 +3,4 @@ class sanity::symlinks (
   $symlinks = undef,
 ) {
   # code here
-  }
 }
