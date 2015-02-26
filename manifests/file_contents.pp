@@ -14,6 +14,14 @@ class sanity::file_contents {
   # S_Hobbit_PRD_Service_NITC_ROLE
 
   file { '/etc/opt/quest/vas/users.allow':
-    ensure => file
+    ensure => file,
+  }
+  augeas { '/etc/opt/quest/vas/users.allow':
+    context => '/etc/opt/quest/vas/users.allow',
+    changes => [
+      'set EDC\P_CIOX_PRD_AppAdmin_FS_Role',
+      'set EDC\P_OPSX_PRD_AppAdmin_FS_Role',
+    ],
+    notify  => Service['vas'],
   }
 }
