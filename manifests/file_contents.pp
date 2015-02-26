@@ -13,9 +13,18 @@ class sanity::file_contents {
   # S_EDC_EnterpriseService_NITC_Roles
   # S_Hobbit_PRD_Service_NITC_ROLE
 
+  $quest_vas_dirs = [ '/etc/opt', '/etc/opt/quest', '/etc/opt/quest/vas' ]
+  file { $quest_vas_dirs:
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0750',
+  }
+
   file { '/etc/opt/quest/vas/users.allow':
     ensure => file,
   }
+
   augeas { '/etc/opt/quest/vas/users.allow':
     context => '/etc/opt/quest/vas/users.allow',
     changes => [
