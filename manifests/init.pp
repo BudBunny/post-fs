@@ -44,6 +44,7 @@ class sanity {
   include ::sanity::nfs
   include ::sanity::ram
   include ::sanity::ssh
+  include ::sanity::symlinks
 
   case $::osfamily {
     'windows','Solaris','Darwin': {
