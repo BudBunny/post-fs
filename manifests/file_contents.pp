@@ -13,21 +13,19 @@ class sanity::file_contents {
   # S_EDC_EnterpriseService_NITC_Roles
   # S_Hobbit_PRD_Service_NITC_ROLE
 
-  $quest_vas_dirs = [ '/etc/opt', '/etc/opt/quest', '/etc/opt/quest/vas' ]
-  file { $quest_vas_dirs:
-    ensure => 'directory',
-    #owner  => 'root',
-    #group  => 'root',
-    #mode   => '0750',
-  }
+  #$quest_vas_dirs = [ '/etc/opt', '/etc/opt/quest', '/etc/opt/quest/vas' ]
+  #file { $quest_vas_dirs:
+  #  ensure => 'directory',
+  #  #owner  => 'root',
+  #  #group  => 'root',
+  #  #mode   => '0750',
+  #}
 
-  file { '/etc/opt/quest/vas/users.allow':
-    ensure => file,
-  }
-  file_line { 'EDC\P_CIOX_PRD_AppAdmin_FS_Role':
-   ensure => present,
-   path   => '/etc/opt/quest/vas/users.allow',
-   line   => 'EDC\P_CIOX_PRD_AppAdmin_FS_Role',
- }
+  #file { '/etc/opt/quest/vas/users.allow':
+  #  ensure => file,
+  #}
+
+  $file_lines = hiera_hash('sanity::file_contents::file_lines', {})
+  create_resources(file_line, $file_lines)
 
 }
