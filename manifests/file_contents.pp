@@ -25,7 +25,7 @@ class sanity::file_contents {
   #  ensure => file,
   #}
 
-  $files = hiera_array('sanity::file_contents::files', {})
+  $files = hiera_hash('sanity::file_contents::files', {})
   create_resources(file, $files)
 
   $file_lines = hiera_hash('sanity::file_contents::file_lines', {})
