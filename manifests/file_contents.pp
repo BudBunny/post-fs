@@ -1,5 +1,8 @@
 # This class checks contents of file(s) for string(s)
-class sanity::file_contents {
+class sanity::file_contents (
+  $files = {},
+  $file_lines = {},
+) {
   # file contents
   #
   # some examples for /etc/opt/quest/vas/users.allow:
@@ -25,10 +28,7 @@ class sanity::file_contents {
   #  ensure => file,
   #}
 
-  $files = hiera_hash('sanity::file_contents::files', {})
   create_resources(file, $files)
-
-  $file_lines = hiera_hash('sanity::file_contents::file_lines', {})
   create_resources(file_line, $file_lines)
 
 }

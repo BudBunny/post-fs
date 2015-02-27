@@ -35,10 +35,15 @@
 #
 # Copyright 2015 FFI. All rights reserved.
 #
-class sanity {
-
+class sanity (
+  $files = undef,
+  $file_lines = undef,
+){
   include ::sanity::cpu
-  include ::sanity::file_contents
+  class { '::sanity::file_contents':
+    files      => $files,
+    file_lines => $file_lines,
+  }
   include ::sanity::filesystems
   include ::sanity::fqdn
   include ::sanity::nfs
