@@ -38,13 +38,28 @@
 class sanity (
   $files = undef,
   $file_lines = undef,
+  $filesystem_mounts = {},
 ){
+
+  validate_hash($filesystem_mounts)
+
   include ::sanity::cpu
   class { '::sanity::file_contents':
     files      => $files,
     file_lines => $file_lines,
   }
-  include ::sanity::filesystems
+
+  file { [ '/etc/facter', '/etc/facter/facts.d', ]:
+    ensure => 'directory',
+  }
+
+  file { '/etc/facter/facts.d/filesystem_sizes.bash':
+    ensure => file,
+    source => 'puppet:///modules/sanity/filesystem_sizes.bash',
+  }
+
+  create_resources ('::sanity::filesystem', $filesystem_mounts)
+
   include ::sanity::fqdn
   include ::sanity::nfs
   include ::sanity::ram
