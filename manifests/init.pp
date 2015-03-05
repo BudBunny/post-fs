@@ -41,6 +41,8 @@ class sanity (
   $filesystem_mounts = {},
 ){
 
+  notice("I was passed: ${filesystem_mounts}")
+
   validate_hash($filesystem_mounts)
 
   include ::sanity::cpu
