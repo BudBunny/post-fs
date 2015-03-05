@@ -7,6 +7,6 @@ define sanity::filesystem (
   # TODO: add a validate for size here
 
   if $expected_filesystem_size_bytes > 0 and $expected_filesystem_size_bytes != $::facts["sanity_filesystem_${name}"] {
-    err("Filesystem! Found $::facts[sanity_filesystem_${name}] expected ${expected_filesystem_size_bytes}")
+    err("Filesystem! Found $::facts[\"sanity_filesystem_${name}\"] expected ${expected_filesystem_size_bytes}")
   }
 }
