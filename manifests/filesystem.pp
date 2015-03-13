@@ -7,7 +7,7 @@ define sanity::filesystem (
   # TODO: add a validate for size here
 
   # The mount size reurned from the node
-  $_mount_size = $::facts["sanity_filesystem_${name}"]
+  #$_mount_size = $::facts["sanity_filesystem_${name}"]
 
   # Check for empty mount point
   if !$_mount_size {
