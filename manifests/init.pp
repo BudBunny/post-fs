@@ -35,6 +35,7 @@
 #
 # Copyright 2015 FFI. All rights reserved.
 #
+
 class sanity (
   $files = undef,
   $file_lines = undef,
@@ -46,6 +47,7 @@ class sanity (
   validate_hash($filesystem_mounts)
 
   include ::sanity::cpu
+
   class { '::sanity::file_contents':
     files      => $files,
     file_lines => $file_lines,
